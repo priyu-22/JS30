@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$('#num1').change(function(){
+		isItNaN($('#num1').val());
+		calc();
+	});
+	$('#num2').change(function(){
+		isItNaN($('#num2').val());
+		calc();
+	});
+	
+});
+function calc(){
+	var num1 = $('#num1').val();
+	var num2 = $('#num2').val();
+	var result = Number(num1) + Number(num2);
+	 document.getElementById('result').innerHTML = result;
+	 //$(this).after('<div class="validationError">Please enter only numbers. </div>');
+}
+function isItNaN(obj){
+if(Number(obj) == NaN){
+	$('#num1').before('<div class="validationError">Please enter only numbers. </div>');
+	return;
+	}
+}
+</script>
+</head>
+<body>
+<input type="text" id ="num1" class = "decimalNumber"> +
+<input type = "text" id = "num2" class = "decimalNumber"> =
+<label id="result"></label>
+</body>
+</html>
